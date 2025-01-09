@@ -46,4 +46,10 @@ class ProductController {
             renderView("view/product_edit.php", compact('product'), "Edit Product");
         }
     }
+
+    public function delete($id) {
+        $this->productModel->deleteProduct($id);
+        header("Location: /products");
+        exit;
+    }
 }
