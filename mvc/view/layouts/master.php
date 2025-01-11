@@ -9,13 +9,25 @@
 </head>
 <body>
     <header class="bg-dark text-white py-3">
-        <div class="container">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div>
             <h1 class="h3">My App</h1>
             <nav>
                 <a href="/" class="text-white me-3">Home</a>
                 <a href="/products" class="text-white">Products</a>
+                <a href="/categories" class="text-white ms-3">Categories</a>
             </nav>
         </div>
+        <div>
+            <?php if (isset($_SESSION['user'])): ?>
+                <span class="me-3">Welcome, <?= htmlspecialchars($_SESSION['user']['name']); ?></span>
+                <a href="/logout" class="btn btn-light btn-sm">Logout</a>
+            <?php else: ?>
+                <a href="/login" class="btn btn-light btn-sm">Login</a>
+                <a href="/register" class="btn btn-light btn-sm">Register</a>
+            <?php endif; ?>
+        </div>
+    </div>
     </header>
     <main class="container my-4">
         <?= $content ?>
