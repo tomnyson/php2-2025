@@ -11,11 +11,13 @@
     <header class="bg-dark text-white py-3">
     <div class="container d-flex justify-content-between align-items-center">
         <div>
-            <h1 class="h3">My App</h1>
+            <h1 class="h3">PHP2</h1>
             <nav>
                 <a href="/" class="text-white me-3">Home</a>
                 <a href="/products" class="text-white">Products</a>
                 <a href="/categories" class="text-white ms-3">Categories</a>
+                <a href="/colors" class="text-white ms-3">Colors</a>
+                <a href="/sizes" class="text-white ms-3">Sizes</a>
             </nav>
         </div>
         <div>
