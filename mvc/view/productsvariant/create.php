@@ -14,7 +14,7 @@
     </div>
     <?php if ($sizes) : ?>
         <label for="size" class="form-label">Size</label>
-        <select class="form-select" id="Size" name="Size" required>
+        <select class="form-select" id="Size" name="sizeId" required>
             <option value="">Select a Size</option>
             <?php foreach ($sizes as $size) : ?>
                 <option value="<?= $size['id'] ?>"><?= $size['name'] ?></option>
@@ -24,7 +24,7 @@
     <?php endif; ?>
     <?php if ($colors) : ?>
         <label for="color" class="form-label">Color</label>
-        <select class="form-select" id="Color" name="Color" required>
+        <select class="form-select" id="Color" name="colorId" required>
             <option value="">Select a Color</option>
             <?php foreach ($colors as $color) : ?>
                 <option value="<?= $color['id'] ?>"><?= $color['name'] ?></option>

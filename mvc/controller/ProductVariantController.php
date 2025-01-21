@@ -9,11 +9,13 @@ class ProductVariantController {
     private $productModel;
     private $sizeModel;
     private $colorModel;
+    private $productVariantModel;
 
     public function __construct() {
         $this->productModel = new ProductModel();
         $this->sizeModel = new SizeModel();
         $this->colorModel = new ColorModel();
+        $this->productVariantModel = new ProductVariantModel();
     }
 
     public function index() {
@@ -28,13 +30,28 @@ class ProductVariantController {
     }
 
     public function create($id) {
+        $message = "";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = $_POST['name'];
-            $description = $_POST['description'];
+            $errors = [];
+            $product_id = $_POST['product_id'];
+            $colorId = $_POST['colorId'];
+            $sizeId = $_POST['sizeId'];
+            $image = $_POST['image'];
+            $quantity = $_POST['quantity'];
             $price = $_POST['price'];
+            $sku = $_POST['sku'];
+            if ($this->productVariantModel->checkExistSku($sku)) {
+                $errors[] = "Sku is already exist";
+                $products = $this->productModel->getAllProducts();
+                $sizes = $this->sizeModel->getAll();
+                $colors = $this->colorModel->getAll();
+                renderView("view/productsvariant/create.php", compact("products", "colors", "sizes", "errors"), "Create ProductVariants");
+            }
 
-            $this->productModel->createProduct($name, $description, $price);
-            header("Location: /products");
+            $this->productVariantModel->createVariants($product_id, $colorId, $sizeId, $image, $quantity, $price, $sku);
+            $message = "<p class='alert alert-primary '>Create product variant successfully</p>";
+            $_SESSION['message'] = $message;
+            // header("Location: /products");
         } else {
             $products = $this->productModel->getAllProducts();
             $sizes = $this->sizeModel->getAll();

@@ -17,20 +17,28 @@ class ProductVariantModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getProductById($id) {
-        $query = "SELECT * FROM product_variants WHERE id = :id";
+    public function checkExistSku($sku) {
+        $query = "SELECT * FROM product_variants WHERE sku = :sku";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':sku', $sku);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return ($stmt->fetchColumn() > 0);
     }
 
-    public function createVariants($product_id, $color, $size, $image, $quantity, $price, $sku) {
-        $query = "INSERT INTO product_variants (product_id, color, size,image, quantity,price,sku) VALUES (:product_id, :color, :size, :image, :quantity, :price, :sku)";
+    public function getVariantByProductId($productId) {
+        $query = "SELECT *, c.name as colorName, s.name as sizeName FROM product_variants p INNER JOIN colors c on p.colorId = c.id INNER JOIN sizes s on p.sizeId = s.id WHERE p.product_id = :productId ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':productId', $productId);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function createVariants($product_id, $colorId, $sizeId, $image, $quantity, $price, $sku) {
+        $query = "INSERT INTO product_variants (product_id, colorId, sizeId,image, quantity,price,sku) VALUES (:product_id, :colorId, :sizeId, :image, :quantity, :price, :sku)";
         $stmt = $this->conn->prepare($query);   
         $stmt->bindParam(':product_id', $product_id);
-        $stmt->bindParam(':color', $color);
-        $stmt->bindParam(':size', $size);
+        $stmt->bindParam(':colorId', $colorId);
+        $stmt->bindParam(':sizeId', $sizeId);
         $stmt->bindParam(':image', $image);
         $stmt->bindParam(':quantity', $quantity);
         $stmt->bindParam(':price', $price);

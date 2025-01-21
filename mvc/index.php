@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "controller/ProductController.php";
 require_once "controller/AuthController.php";
 require_once "controller/CategoryController.php";
