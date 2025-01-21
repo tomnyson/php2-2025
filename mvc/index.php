@@ -5,6 +5,8 @@ require_once "controller/AuthController.php";
 require_once "controller/CategoryController.php";
 require_once "controller/ColorController.php";
 require_once "controller/SizeController.php";
+require_once "controller/ProductVariantController.php";
+
 require_once "router/Router.php";
 require_once "middleware.php";
 
@@ -14,6 +16,7 @@ $authController = new AuthController();
 $categoryController = new CategoryController();
 $colorController = new ColorController();
 $sizeController = new SizeController();
+$productVariantController = new ProductVariantController();
 
 $router->addMiddleware('logRequest');
 
@@ -23,6 +26,9 @@ $router->addRoute("/products/create", [$productController, "create"], ['isAdmin'
 $router->addRoute("/products/{id}", [$productController, "show"], ['isUser']); // Accessible to all logged-in users
 $router->addRoute("/products/edit/{id}", [$productController, "edit"], ['isAdmin']); // Admin only
 $router->addRoute("/products/delete/{id}", [$productController, "delete"], ['isAdmin']); // Admin only
+# routers variant products
+$router->addRoute("/product-variants/create/{id}", [$productVariantController, "create"]);
+
 // Accessible to all logged-in users
 $router->addRoute("/login", [$authController, "login"]);
 $router->addRoute("/logout", [$authController, "logout"]);

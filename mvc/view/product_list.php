@@ -16,6 +16,7 @@
             <td><?= $product['name'] ?></td>
             <td>$<?= $product['price'] ?></td>
             <td>
+                <a href="/products-variants/create/<?= $product['id'] ?>" class="btn btn-info btn-sm">Add variant</a>
                 <a href="/products/<?= $product['id'] ?>" class="btn btn-info btn-sm">View</a>
                 <a href="/products/edit/<?= $product['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
                 <a href="/products/delete/<?= $product['id'] ?>" class="btn btn-danger btn-sm">Delete</a>

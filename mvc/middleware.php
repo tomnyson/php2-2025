@@ -1,14 +1,14 @@
 <?php
 
-// function isAdmin() {
-//     // Check if the user role is 'admin'
-//     if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin') {
-//         return true;
-//     }
-//     echo "Access denied: Admin privileges required.";
-//     header("Location: /login");
-//     exit;
-// }
+function isAdmin() {
+    // Check if the user role is 'admin'
+    if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin') {
+        return true;
+    }
+    echo "Access denied: Admin privileges required.";
+    header("Location: /login");
+    exit;
+}
 
 function isUser() {
     if (isset($_SESSION['user'])) {
