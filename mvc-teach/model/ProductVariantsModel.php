@@ -26,10 +26,7 @@ class ProductVariantModel {
     }
 
     public function getVariantByProductId($productId) {
-        $query = "SELECT *, c.name as colorName, s.name as sizeName
-         FROM product_variants p INNER JOIN colors c on p.colorId = c.id
-            INNER JOIN sizes s on p.sizeId = s.id
-         WHERE p.product_id = :productId ";
+        $query = "SELECT *, c.name as colorName, s.name as sizeName FROM product_variants p INNER JOIN colors c on p.colorId = c.id INNER JOIN sizes s on p.sizeId = s.id WHERE p.product_id = :productId ";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':productId', $productId);
         $stmt->execute();

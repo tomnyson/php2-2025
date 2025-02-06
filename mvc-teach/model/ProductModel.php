@@ -3,6 +3,7 @@ require_once "Database.php";
 
 class ProductModel {
     private $conn;
+    
 
     public function __construct() {
         $database = new Database();
