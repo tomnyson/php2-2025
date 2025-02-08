@@ -42,7 +42,7 @@ if (!empty($product_variants)) {
 
     <div class="col-6">
         <h4>Choose Variant:</h4>
-        <form action="/cart/create" method="POST">
+        <form action="/carts/create" method="POST">
             <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
 
             <!-- Color Selection -->

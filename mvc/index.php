@@ -5,6 +5,7 @@ require_once "controller/CategoryController.php";
 require_once "controller/ColorController.php";
 require_once "controller/SizeController.php";
 require_once "controller/ProductVariantController.php";
+require_once "controller/CartController.php";
 
 require_once "router/Router.php";
 require_once "middleware.php";
@@ -16,6 +17,7 @@ $categoryController = new CategoryController();
 $colorController = new ColorController();
 $sizeController = new SizeController();
 $productVariantController = new ProductVariantController();
+$cartController = new CartController();
 
 $router->addMiddleware('logRequest');
 
@@ -51,6 +53,9 @@ $router->addRoute("/sizes/create", [$sizeController, "create"]);
 $router->addRoute("/sizes/{id}", [$sizeController, "show"]);
 $router->addRoute("/sizes/edit/{id}", [$sizeController, "edit"]);
 $router->addRoute("/sizes/delete/{id}", [$sizeController, "delete"]);
-
+// carts
+$router->addRoute("/carts", [$cartController, "index"]);
+$router->addRoute("/carts/delete/{id}", [$cartController, "delete"]);
+$router->addRoute('/carts/create', [$cartController, "create"]);
 $router->dispatch();
 ?>
