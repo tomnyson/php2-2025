@@ -21,6 +21,7 @@
                     <a href="/colors" class="text-white ms-3">Colors</a>
                     <a href="/sizes" class="text-white ms-3">Sizes</a>
                     <a href="/product-variants/create/1" class="text-white ms-3">Add variant</a>
+                    <a href="/cart" class="text-white ms-3">Cart</a>
                 </nav>
             </div>
             <div>

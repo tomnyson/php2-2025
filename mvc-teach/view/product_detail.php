@@ -42,7 +42,7 @@ if (!empty($product_variants)) {
 
     <div class="col-6">
         <h4>Choose Variant:</h4>
-        <form action="add_to_cart.php" method="POST">
+        <form action="/cart/create" method="POST">
             <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
 
             <!-- Color Selection -->
@@ -65,7 +65,7 @@ if (!empty($product_variants)) {
 
             <!-- Hidden SKU Field -->
             <input type="hidden" id="selectedSku" name="sku" value="">
-
+            <input type="hidden" id="selectedPrice" name="price" value="">
             <!-- Quantity Input -->
             <label for="quantityInput" class="mt-3"><strong>Quantity:</strong></label>
             <input type="number" id="quantityInput" name="quantity" class="form-control" min="1" value="1" required disabled>
@@ -97,6 +97,7 @@ if (!empty($product_variants)) {
     const productQuantity = document.getElementById('productQuantity');
     const addToCartBtn = document.getElementById('addToCartBtn');
     const selectedSku = document.getElementById('selectedSku');
+    const selectedPrice = document.getElementById('selectedPrice');
 
     colorSelect.addEventListener('change', function() {
         sizeSelect.innerHTML = '<option value="">-- Choose Size --</option>';
@@ -130,12 +131,13 @@ if (!empty($product_variants)) {
         if (variantMap[selectedColor] && variantMap[selectedColor][selectedSize]) {
             const variant = variantMap[selectedColor][selectedSize];
             productImage.src = variant.image ? variant.image : 'placeholder.jpg';
-            productPrice.textContent = `$${parseFloat(variant.price).toFixed(2)}`;
+            productPrice.textContent = `${parseFloat(variant.price).toFixed(2)}`;
             productSku.textContent = variant.sku;
             selectedSku.value = variant.sku;
             productQuantity.textContent = variant.quantity;
             quantityInput.disabled = false;
             addToCartBtn.disabled = false;
+            selectedPrice.value = variant.price;
         }
     });
 
