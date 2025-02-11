@@ -41,6 +41,14 @@ class CartModel {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+
+    public function updateQuantity($id, $quantity) {
+        $query = "UPDATE carts SET quantity = :quantity WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':quantity', $quantity);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
     
 }
 ?>

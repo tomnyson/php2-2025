@@ -13,7 +13,7 @@
     <header class="bg-dark text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div>
-                <h1 class="h3">PHP2</h1>
+                <h1 class="h3">PHP2 (no copy)</h1>
                 <nav>
                     <a href="/" class="text-white me-3">Home</a>
                     <a href="/products" class="text-white">Products</a>
@@ -40,7 +40,7 @@
         if (!isset($_SESSION['message'])) {
             $_SESSION['message'] = "";
         } else {
-            echo $_SESSION['message'];
+            echo "<div class='alert alert-info'>{$_SESSION['message']}</div>";
             // var_dump($_SESSION['message']);
             unset($_SESSION['message']);
         }

@@ -57,5 +57,6 @@ $router->addRoute("/sizes/delete/{id}", [$sizeController, "delete"]);
 $router->addRoute("/carts", [$cartController, "index"]);
 $router->addRoute("/carts/delete/{id}", [$cartController, "delete"]);
 $router->addRoute('/carts/create', [$cartController, "create"]);
+$router->addRoute('/carts/update/{id}', [$cartController, "updateQuantity"]);
 $router->dispatch();
 ?>

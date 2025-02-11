@@ -30,7 +30,12 @@ if(count($carts) == 0){
             <tr>
                 <td><?= $cart['id'] ?></td>
                 <td><?= $cart['sku'] ?></td>
-                <td><?= $cart['quantity'] ?></td>
+                <td>
+                <form action="/carts/update/<?= $cart['id'] ?>" method="post" class="d-flex">
+                    <input type="number" value="<?= $cart['quantity'] ?>" class="form-control" min="0" style="width: 100px" name="quantity"/>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                </form>
+                </td>
                 <td><?= $cart['price'] ?></td>
                 <td><?= $cart['price'] * $cart['quantity'] ?> <?php
                                                                 $total += $cart['price'] * $cart['quantity'];
