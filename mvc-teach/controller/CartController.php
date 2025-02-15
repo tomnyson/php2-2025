@@ -23,6 +23,10 @@ class CartController {
 
     // Add an item to the cart
     public function create() {
+        /**
+         * kt trương hợp thêm trùm
+         * kt số lương thêm vượt qúa hiện tại
+         */
         $cart_session = session_id();
         $user_id = $_SESSION['user']['id'] ?? null;
 

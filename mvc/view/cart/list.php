@@ -55,4 +55,6 @@ if(count($carts) == 0){
             <td><?= $total ?></td>
         </tr>
     </tbody>
+    
 </table>
+<a href="/checkout" class="btn btn-primary mb-3">Checkout</a>

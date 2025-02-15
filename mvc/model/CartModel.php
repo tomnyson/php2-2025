@@ -13,7 +13,8 @@ class CartModel {
 
         $condition = !empty($user_id) ? "user_id = :user_id" : "cart_session = :cart_session";
         
-        $query = "SELECT * FROM carts WHERE $condition";
+        $query = "SELECT * FROM carts  INNER JOIN product_variants ON carts.sku = product_variants.sku WHERE $condition ";
+
         $stmt = $this->conn->prepare($query);
         if(!empty($user_id)) {
             $stmt->bindParam(':user_id', $user_id);
