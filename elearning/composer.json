@@ -1,0 +1,17 @@
+{
+    "name": "sonle/elearning",
+    "autoload": {
+        "psr-4": {
+            "Sonle\\Elearning\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tomnyson",
+            "email": "tabletkindfire@gmail.com"
+        }
+    ],
+    "require": {
+        "jenssegers/blade": "^1.4"
+    }
+}
