@@ -1,7 +1,7 @@
 <?php
 require_once "model/CartModel.php";
 require_once "view/helpers.php";
-
+require_once "core/BladeServiceProvider.php"; 
 class CartController {
     private $cartModel;
 
@@ -17,8 +17,8 @@ class CartController {
         $cartItems = $user_id ? 
             $this->cartModel->getCartByUserId($user_id) : 
             $this->cartModel->getCartItems($cart_session);
-
-        renderView("view/cart/cart_list.php", compact('cartItems'), "Cart Items");
+            echo BladeServiceProvider::render("cart.cart_list", ['carts' => $cartItems]);
+            // echo BladeServiceProvider::render("cart.test", array('name' => 'tomnyson'));
     }
 
     // Add an item to the cart
