@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết khóa học</title>
+  <!-- Bootstrap 5 CSS -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <!-- Font Awesome (Tùy chọn, nếu bạn muốn dùng icon) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSsVqvJv9U2mW9fXQmqTPlf2sR0r9WsC64wq4+NDGJNEqfcZ6I1f6Zy6hC8gAA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"
+  />
+  <style>
+    /* =====================
+       CSS tùy chỉnh
+    ====================== */
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+    
+    /* Breadcrumb custom */
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: ">";
+      color: #999;
+    }
+
+    /* Khối nội dung chính */
+    .course-header {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+    .course-header .title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .course-header .meta {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    /* Khối thông tin mua/giá khoá học (sidebar) */
+    .purchase-box {
+      position: sticky; /* Để khi scroll, box vẫn cố định */
+      top: 20px;
+      border: 1px solid #ddd;
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .purchase-box .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #dc3545;
+    }
+
+    /* Bạn sẽ học được (bullet list) */
+    .learn-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Nội dung khóa học */
+    .curriculum-list .lesson-title {
+      font-weight: 600;
+    }
+    .curriculum-list .sub-lesson {
+      margin-left: 20px;
+      list-style: circle;
+    }
+
+    /* Khóa học liên quan - card */
+    .related-course .card {
+      margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+    .related-course .card:hover {
+      transform: scale(1.02);
+    }
+    .related-course .card-img-top {
+      height: 140px;
+      object-fit: cover;
+    }
+
+    /* Giảng viên, đánh giá */
+    .instructor-info, .reviews-info {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+    }
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header + Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container">
+      <!-- Logo / Brand -->
+      <a class="navbar-brand" href="#">
+        <img src="https://via.placeholder.com/40" alt="Logo" class="me-2">
+        My Courses
+      </a>
+
+      <!-- Nút toggle hiển thị menu trên mobile -->
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu chính -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Danh mục</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Khóa học</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Liên hệ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="container py-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="#">Danh mục</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Chi tiết khóa học</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Nội dung chính -->
+  <div class="container">
+    <div class="row">
+      <!-- Cột chính: Thông tin khóa học, giới thiệu, nội dung bài giảng -->
+      <div class="col-lg-8 col-md-12">
+
+        <!-- Khối tiêu đề khóa học -->
+        <div class="course-header">
+          <h1 class="title">Bí quyết Tán gái</h1>
+          <div class="meta">
+            Cập nhật lần cuối: 17/02/2025 &nbsp; • &nbsp; 1024 học viên
+          </div>
+          <p>
+            Khóa học “Bí quyết Tán gái” sẽ hướng dẫn bạn từ những bước làm quen cơ bản đến nghệ thuật chinh phục trái tim của đối phương. Khóa học phù hợp cho mọi đối tượng có mong muốn cải thiện kỹ năng giao tiếp và tạo ấn tượng tốt. 
+          </p>
+        </div>
+
+        <!-- Phần "Bạn sẽ học được" -->
+        <div class="mb-4 bg-white p-3 border">
+          <h5 class="mb-3">Bạn sẽ học được</h5>
+          <ul class="learn-list">
+            <li>Cách xây dựng hình ảnh tự tin và cuốn hút</li>
+            <li>Nghệ thuật bắt chuyện và duy trì cuộc trò chuyện</li>
+            <li>Kỹ năng phân tích tâm lý phái nữ</li>
+            <li>Làm thế nào để tạo ấn tượng dài lâu và tiến xa hơn</li>
+          </ul>
+        </div>
+
+        <!-- Giới thiệu khóa học -->
+        <div class="mb-4 bg-white p-3 border">
+          <h5 class="mb-3">Giới thiệu khóa học</h5>
+          <p>
+            Trong khóa học này, bạn sẽ được trang bị các bí quyết tâm lý, ngôn ngữ cơ thể, cũng như cách trò chuyện tinh tế để thu hút đối phương. Từ những tình huống thực tế, giảng viên sẽ chia sẻ kinh nghiệm và đưa ra các bài tập thực hành giúp bạn tự tin áp dụng.
+          </p>
+        </div>
+
+        <!-- Nội dung khóa học (Curriculum) -->
+        <div class="mb-4 bg-white p-3 border">
+          <h5 class="mb-3">Nội dung khóa học</h5>
+          <div class="accordion" id="courseContent">
+            <!-- Phần 1 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#collapse1" 
+                        aria-expanded="true" aria-controls="collapse1">
+                  Phần 1: Khởi đầu
+                </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse show" 
+                   aria-labelledby="heading1" data-bs-parent="#courseContent">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Giới thiệu về khóa học</li>
+                    <li>Làm quen với giảng viên</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Phần 2 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#collapse2" 
+                        aria-expanded="false" aria-controls="collapse2">
+                  Phần 2: Phân tích tâm lý
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse" 
+                   aria-labelledby="heading2" data-bs-parent="#courseContent">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Hiểu về tâm lý và nhu cầu của phái nữ</li>
+                    <li>Làm chủ ngôn ngữ cơ thể</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Phần 3 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#collapse3" 
+                        aria-expanded="false" aria-controls="collapse3">
+                  Phần 3: Kỹ năng giao tiếp
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse" 
+                   aria-labelledby="heading3" data-bs-parent="#courseContent">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Bắt chuyện và cách đặt câu hỏi khéo léo</li>
+                    <li>Chủ đề thú vị để duy trì cuộc trò chuyện</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Phần 4 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#collapse4" 
+                        aria-expanded="false" aria-controls="collapse4">
+                  Phần 4: Tạo ấn tượng mạnh
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" 
+                   aria-labelledby="heading4" data-bs-parent="#courseContent">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Chuẩn bị cuộc hẹn đầu tiên</li>
+                    <li>Giữ sức hút và tính cách riêng</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Phần 5 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#collapse5" 
+                        aria-expanded="false" aria-controls="collapse5">
+                  Phần 5: Tiến xa hơn
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" 
+                   aria-labelledby="heading5" data-bs-parent="#courseContent">
+                <div class="accordion-body">
+                  <ul>
+                    <li>Bí quyết duy trì mối quan hệ</li>
+                    <li>Xử lý mâu thuẫn và vượt qua trở ngại</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Khoá học liên quan -->
+        <div class="related-course">
+          <h5 class="mb-3">Khóa học liên quan</h5>
+          <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <img 
+                  src="https://via.placeholder.com/600x300" 
+                  class="card-img-top" 
+                  alt="Khoá học liên quan 1"
+                >
+                <div class="card-body">
+                  <h6 class="card-title">Kỹ năng giao tiếp thuyết phục</h6>
+                  <p class="card-text text-muted">
+                    Nâng cao kỹ năng giao tiếp, tạo ấn tượng chuyên nghiệp trong công việc.
+                  </p>
+                  <p class="text-danger fw-bold mb-0">199.000đ</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <img 
+                  src="https://via.placeholder.com/600x300" 
+                  class="card-img-top" 
+                  alt="Khoá học liên quan 2"
+                >
+                <div class="card-body">
+                  <h6 class="card-title">Tâm lý học tình yêu</h6>
+                  <p class="card-text text-muted">
+                    Hiểu rõ tâm lý đối phương để xây dựng tình yêu bền vững.
+                  </p>
+                  <p class="text-danger fw-bold mb-0">299.000đ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giảng viên -->
+        <div class="instructor-info">
+          <h5>Giảng viên</h5>
+          <div class="d-flex align-items-center">
+            <img 
+              src="https://via.placeholder.com/80" 
+              alt="Giảng viên" 
+              class="rounded-circle me-3"
+            >
+            <div>
+              <h6 class="mb-0">Mr. X</h6>
+              <p class="mb-0 text-muted">Chuyên gia tâm lý & giao tiếp</p>
+            </div>
+          </div>
+          <p class="mt-3">
+            Với hơn 10 năm kinh nghiệm tư vấn tâm lý và kỹ năng giao tiếp, giảng viên Mr. X đã giúp hàng ngàn học viên cải thiện sự tự tin và phát triển các mối quan hệ lành mạnh.
+          </p>
+        </div>
+
+        <!-- Đánh giá khóa học -->
+        <div class="reviews-info">
+          <h5>Đánh giá khóa học</h5>
+          <p class="mb-2"><strong>4.4/5</strong> từ <strong>100+</strong> đánh giá</p>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Nguyễn Văn A</strong> <br>
+              “Khóa học rất thú vị, hướng dẫn cụ thể và áp dụng được thực tế.”
+            </li>
+            <li class="list-group-item">
+              <strong>Trần Thị B</strong> <br>
+              “Giảng viên trình bày dễ hiểu, các ví dụ minh họa khá sát.”
+            </li>
+            <li class="list-group-item">
+              <strong>Lê Văn C</strong> <br>
+              “Cảm ơn khóa học, mình đã tự tin hơn rất nhiều!”
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Cột phải: Thông tin mua khóa học, nút mua, quảng cáo (nếu có) -->
+      <div class="col-lg-4 col-md-12">
+        <!-- Purchase box -->
+        <div class="purchase-box mb-4">
+          <h5 class="mb-3">Khóa học này bao gồm:</h5>
+          <ul class="mb-3">
+            <li><i class="far fa-play-circle me-2"></i> 25 bài giảng video</li>
+            <li><i class="far fa-file-alt me-2"></i> Tài liệu tham khảo</li>
+            <li><i class="far fa-clock me-2"></i> Học mọi lúc, mọi nơi</li>
+            <li><i class="fas fa-infinity me-2"></i> Truy cập trọn đời</li>
+          </ul>
+          <div class="price mb-3">299.000đ</div>
+          <button class="btn btn-success w-100 mb-2">Mua ngay</button>
+          <button class="btn btn-outline-secondary w-100">Thêm vào giỏ</button>
+        </div>
+
+        <!-- Quảng cáo (tùy chọn) -->
+        <div class="mb-4">
+          <img 
+            src="https://via.placeholder.com/300x250" 
+            alt="Ad banner" 
+            class="img-fluid"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center mt-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 My Courses. All rights reserved.</p>
+      <p class="mb-0">
+        <a href="#">Điều khoản sử dụng</a> | 
+        <a href="#">Chính sách bảo mật</a> | 
+        <a href="#">Liên hệ</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
