@@ -1,6 +1,7 @@
 <?php
 require_once "model/UserModel.php";
 require_once "view/helpers.php";
+require_once "core/BladeServiceProvider.php"; 
 
 class AuthController {
     private $userModel;
@@ -41,7 +42,9 @@ class AuthController {
                 $error = "Invalid email or password.";
             }
         }
-        renderView("view/auth/login.php", compact('error'), "Login");
+        // renderView("view/auth/login.php", compact('error'), "Login");
+        $title = "Login";
+        BladeServiceProvider::render("auth.login", compact('error', 'title'));
     }
 
     public function logout() {

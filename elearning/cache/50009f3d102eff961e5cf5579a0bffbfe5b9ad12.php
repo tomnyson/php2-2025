@@ -1,4 +1,8 @@
+
+<?php $__env->startSection("content"); ?>
 <h1 class="text-center my-4">Login</h1>
+<?php echo e($title); ?>
+
 <?php if (isset($error)): ?>
     <div class="alert alert-danger text-center" role="alert">
         <?= $error ?>
@@ -20,3 +24,5 @@
         Don't have an account? <a href="/register">Register</a>
     </p>
 </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/php2_2025/elearning/view/auth/login.blade.php ENDPATH**/ ?>

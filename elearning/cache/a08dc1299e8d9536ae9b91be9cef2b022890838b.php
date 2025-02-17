@@ -42,7 +42,7 @@
             unset($_SESSION['message']);
         }
         ?>
-         <?= $content ?>
+         <?php echo $__env->yieldContent('content'); ?>
     </main>
     <footer class="bg-dark text-white py-3 mt-4">
         <div class="container">
@@ -53,4 +53,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</html><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/php2_2025/elearning/view/layouts/master.blade.php ENDPATH**/ ?>

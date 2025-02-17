@@ -42,7 +42,7 @@
             unset($_SESSION['message']);
         }
         ?>
-         <?= $content ?>
+         @yield('content')
     </main>
     <footer class="bg-dark text-white py-3 mt-4">
         <div class="container">
