@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
 require_once "controller/ProductController.php";
 require_once "controller/AuthController.php";
 require_once "controller/CategoryController.php";
@@ -59,6 +60,7 @@ $router->addRoute("/cart", [$cartController, "index"]);
 $router->addRoute("/cart/create", [$cartController, "create"]);
 $router->addRoute("/cart/delete/{id}", [$cartController, "delete"]);
 $router->addRoute("/cart/edit/{id}", [$cartController, "edit"]);
+$router->addRoute("/email-test", [$cartController, "sendMailTest"]);
 
 $router->dispatch();
 ?>

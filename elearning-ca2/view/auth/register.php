@@ -1,3 +1,5 @@
+@extends ('layout.master')
+@section("content")
 <h1 class="text-center my-4">Register</h1>
 <?php if (isset($error)): ?>
     <div class="alert alert-danger text-center" role="alert">
@@ -24,3 +26,4 @@
         Already have an account? <a href="/login">Login</a>
     </p>
 </div>
+@endsection

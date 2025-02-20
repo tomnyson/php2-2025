@@ -2,6 +2,7 @@
 require_once "model/CartModel.php";
 require_once "view/helpers.php";
 require_once "core/BladeServiceProvider.php"; 
+require_once "utils.php";
 class CartController {
     private $cartModel;
 
@@ -63,5 +64,8 @@ class CartController {
         $this->cartModel->removeCartItem($cart_session, $user_id, $id);
         header("Location: /cart");
         exit;
+    }
+    function sendMailTest() {
+        Utils::send("tabletkindfire@gmail.com", "tabletkindfire@gmail.com", "test", "test");
     }
 }

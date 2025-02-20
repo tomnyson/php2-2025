@@ -24,7 +24,9 @@ class AuthController {
                 $error = "Registration failed. Email may already be in use.";
             }
         }
-        renderView("view/auth/register.php", compact('error'), "Register");
+        // renderView("view/auth/register.php", compact('error'), "Register");
+        $title = "Register";
+        BladeServiceProvider::render("auth.register", compact('error', 'title'));
     }
 
     public function login() {

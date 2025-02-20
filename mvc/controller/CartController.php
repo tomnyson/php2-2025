@@ -3,6 +3,7 @@ require_once "model/CategoryModel.php";
 require_once "view/helpers.php";
 require_once "model/CartModel.php";
 require_once 'model/OrderModel.php';
+require_once 'utils.php';
 
 // enum StatusOrder: string
 // {
@@ -76,6 +77,15 @@ class CartController
                  * gui email
                  * hien thi trang thanh toan thanh con
                  */
+                $to = 'tabletkindfire.@gmail.com';
+                $from = 'tabletkindfire.@gmail.com';
+                $subject = 'Order Notification';
+                $content = "You have a new order with code: $code"; 
+                Utils::send($to, $from, $subject, $content);
+                
+                
+                
+
             } else if ($payment == 'vnpay') {
             }
         } else {
