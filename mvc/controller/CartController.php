@@ -243,7 +243,7 @@ class CartController
         }
         $vnp_HashSecret = $_ENV['VNPHASECRET'];
         $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
-        if ($secureHash == $vnp_HashSecret) {
+        if ($secureHash == $vnp_SecureHash) {
             if ($_GET['vnp_ResponseCode'] == '00') {
                 echo "<span style='color:blue'>GD Thanh cong</span>";
             } else {
