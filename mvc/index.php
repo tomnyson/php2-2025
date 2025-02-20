@@ -63,6 +63,11 @@ $router->addRoute('/carts/update/{id}', [$cartController, "updateQuantity"]);
 //checkout
 $router->addRoute('/checkout', [$cartController, "checkout"]);
 
+$router->addRoute("/testvnpay", [$cartController, "testvnpay"]);
+$router->addRoute("/testvnpayreturn", [$cartController, "vnpayReturn"]);
+
+
+
 $router->dispatch();
 
 ?>

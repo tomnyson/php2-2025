@@ -34,6 +34,8 @@ try {
         "vnp_TxnRef" => $vnp_TxnRef,
         "vnp_ExpireDate" => $expire
     );
+    var_dump($inputData);
+    die();
 } catch (Exception $e) {
     printf("Error processing" . $e->getMessage());
 }
